@@ -19,3 +19,5 @@ vendor
 
 # Other types
 .DS_Store
+.idea
+.vscode
