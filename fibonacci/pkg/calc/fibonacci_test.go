@@ -1,4 +1,4 @@
-package test
+package calc
 
 import (
 	"testing"
@@ -6,8 +6,6 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/ginkgo/extensions/table"
 	. "github.com/onsi/gomega"
-
-	"github.com/golang-katas/fibonacci/pkg/calc"
 )
 
 func TestFibonacci(t *testing.T) {
@@ -16,7 +14,7 @@ func TestFibonacci(t *testing.T) {
 }
 
 var _ = Describe("Fibonnaci", func() {
-	var fibonacci calc.Fibonacci
+	var fibonacci Fibonacci
 
 	DescribeTable("Calculating Fibonacci numbers",
 		func(steps int, expected int) {

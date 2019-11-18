@@ -21,7 +21,7 @@ docker run --rm -it \
 Run the tests at the command line to make sure everything is green.
 
 ```bash
-go test ./test -v
+go test ./pkg/calc -v
 ```
 
 Create the module and build the binaries.
@@ -71,7 +71,7 @@ Run the tests to make sure everything is green.
 
 ```bash
 cd fibonacci
-go test ./test -v
+go test ./pkg/calc -v
 ```
 
 Create the module and build the binaries. Be sure to change the build architecture to match your system. In `Makefile`, change the `GOOS=linux` value to match to your environment (`darwin` if you're on macOS, and so on.)
