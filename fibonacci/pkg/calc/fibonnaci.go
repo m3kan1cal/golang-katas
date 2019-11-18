@@ -1,4 +1,4 @@
-package internal
+package calc
 
 // Fibonacci structure for holding fibonacci features.
 type Fibonacci struct{}

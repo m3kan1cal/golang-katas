@@ -7,16 +7,16 @@ import (
 	. "github.com/onsi/ginkgo/extensions/table"
 	. "github.com/onsi/gomega"
 
-	"github.com/golang-katas/fibonacci/internal"
+	"github.com/golang-katas/fibonacci/pkg/calc"
 )
 
-func TestCart(t *testing.T) {
+func TestFibonacci(t *testing.T) {
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Fibonacci Suite")
 }
 
 var _ = Describe("Fibonnaci", func() {
-	var fibonacci internal.Fibonacci
+	var fibonacci calc.Fibonacci
 
 	DescribeTable("Calculating Fibonacci numbers",
 		func(steps int, expected int) {
