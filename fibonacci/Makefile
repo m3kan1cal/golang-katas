@@ -6,7 +6,7 @@ cmds := $(shell find cmd -name \*main.go | awk -F'/' '{print $$2}')
 build: gomodgen # Build golang libraries.
 	export GO111MODULE=on
 	@for cmd in $(cmds) ; do \
-		env GOOS=darwin go build -ldflags="-s -w" -o bin/$$cmd cmd/$$cmd/main.go ; \
+		env GOOS=linux go build -ldflags="-s -w" -o bin/$$cmd cmd/$$cmd/main.go ; \
 	done
 
 clean: # Remove golang binaries.

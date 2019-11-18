@@ -9,20 +9,24 @@ The goal in this kata is to write a function that takes one parameter called **s
 Launch the Docker container in to interactive mode.
 
 ```bash
-
+cd fibonacci
+workdir="/go/src/github.com/golang-katas/fibonacci"
+docker run --rm -it \
+    --name go-fibonacci \
+    --volume $PWD:$workdir \
+    --workdir $workdir \
+    golang
 ```
 
 Run the tests at the command line to make sure everything is green.
 
 ```bash
-cd fibonacci
 go test ./test -v
 ```
 
-Create the module by changing the build architecture to match your system. In `Makefile`, change the `GOOS=darwin` value to match to your environment (`linux` if you're on Linux, and so on.)
+Create the module and build the binaries.
 
 ```bash
-cd fibonacci
 make build
 ```
 
@@ -32,7 +36,36 @@ Run the program to make sure the correct Fibonacci sequence numbers are returned
 ./bin/kata
 ```
 
+After running the above, you should get the following results (20 steps.)
+
+```bash
+0 is the Fibonnaci result for 0 steps
+1 is the Fibonnaci result for 1 steps
+1 is the Fibonnaci result for 2 steps
+2 is the Fibonnaci result for 3 steps
+3 is the Fibonnaci result for 4 steps
+5 is the Fibonnaci result for 5 steps
+8 is the Fibonnaci result for 6 steps
+13 is the Fibonnaci result for 7 steps
+21 is the Fibonnaci result for 8 steps
+34 is the Fibonnaci result for 9 steps
+55 is the Fibonnaci result for 10 steps
+89 is the Fibonnaci result for 11 steps
+144 is the Fibonnaci result for 12 steps
+233 is the Fibonnaci result for 13 steps
+377 is the Fibonnaci result for 14 steps
+610 is the Fibonnaci result for 15 steps
+987 is the Fibonnaci result for 16 steps
+1597 is the Fibonnaci result for 17 steps
+2584 is the Fibonnaci result for 18 steps
+4181 is the Fibonnaci result for 19 steps
+```
+
+Experiment by editing the Go code in `cmd` and `pkg` packages, then rinse and repeat the steps above to rebuild and run.
+
 ## Getting started: local environment
+
+Before you can run this locally, you'll need Go and build tooling installed.
 
 Run the tests to make sure everything is green.
 
@@ -41,10 +74,9 @@ cd fibonacci
 go test ./test -v
 ```
 
-Create the module by changing the build architecture to match your system. In `Makefile`, change the `GOOS=darwin` value to match to your environment (`linux` if you're on Linux, and so on.)
+Create the module and build the binaries. Be sure to change the build architecture to match your system. In `Makefile`, change the `GOOS=linux` value to match to your environment (`darwin` if you're on macOS, and so on.)
 
 ```bash
-cd fibonacci
 make build
 ```
 
@@ -53,3 +85,30 @@ Run the program to make sure the correct Fibonacci sequence numbers are returned
 ```bash
 ./bin/kata
 ```
+
+After running the above, you should get the following results (20 steps.)
+
+```bash
+0 is the Fibonnaci result for 0 steps
+1 is the Fibonnaci result for 1 steps
+1 is the Fibonnaci result for 2 steps
+2 is the Fibonnaci result for 3 steps
+3 is the Fibonnaci result for 4 steps
+5 is the Fibonnaci result for 5 steps
+8 is the Fibonnaci result for 6 steps
+13 is the Fibonnaci result for 7 steps
+21 is the Fibonnaci result for 8 steps
+34 is the Fibonnaci result for 9 steps
+55 is the Fibonnaci result for 10 steps
+89 is the Fibonnaci result for 11 steps
+144 is the Fibonnaci result for 12 steps
+233 is the Fibonnaci result for 13 steps
+377 is the Fibonnaci result for 14 steps
+610 is the Fibonnaci result for 15 steps
+987 is the Fibonnaci result for 16 steps
+1597 is the Fibonnaci result for 17 steps
+2584 is the Fibonnaci result for 18 steps
+4181 is the Fibonnaci result for 19 steps
+```
+
+Experiment by editing the Go code in `cmd` and `pkg` packages, then rinse and repeat the steps above to rebuild and run.
